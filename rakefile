@@ -1,0 +1,66 @@
+require 'asciidoctor'
+require 'rake/clean'
+require 'rake/testtask'
+
+OUTDIR = "public"
+SOURCE = "src/index.adoc"
+FONTDIR = "fonts"
+
+CLEAN.include(OUTDIR)
+
+Rake::TestTask.new do |test|
+  test.test_files = Dir['test/**/*_test.rb']
+  test.verbose = true
+end
+
+desc 'Create HTML'
+task :html do
+  # public/index.htmlを生成
+  sh "asciidoctor -d book -o #{OUTDIR}/index.html -n #{SOURCE}"
+  sh "cp -rp src/images #{OUTDIR}"
+end
+
+def copy_font(fn)
+  FileUtils.mkdir_p( FONTDIR )
+  return if File.exist?(File.join( FONTDIR, fn))
+  %w[
+    ~/Library/Fonts/
+    /Library/Fonts/
+  ].each do |src_dir|
+    src_dir.gsub!( /^\~/, Dir.home )
+    src_fn = File.join( src_dir, fn )
+    p [ File.exist?(src_fn), src_fn ] if /Gen/===src_fn
+    next unless File.exist?(src_fn)
+    FileUtils.cp( src_fn, FONTDIR )
+  end
+end
+
+desc 'Prepare Font'
+task :prepare_font do
+  %w[
+    GenShinGothic-P-Normal.ttf
+    GenShinGothic-P-Bold.ttf
+    Ricty-Regular.ttf
+    Ricty-Bold.ttf
+    GenYoMin-B.ttc
+    GenYoMin-R.ttc
+
+
+].each do |fn|
+    copy_font(fn)
+  end
+end
+
+desc 'Create PDF'
+task pdf: [:prepare_font] do
+  cmd = %W(
+    asciidoctor-pdf -r
+    asciidoctor-pdf-cjk
+    -a pdf-style=src/style/theme.yml
+    #{SOURCE}
+    -o #{OUTDIR}/book.pdf)
+  sh cmd.join(" ")
+  # sh "asciidoctor-pdf -r asciidoctor-pdf-cjk #{SOURCE} -o #{OUTDIR}/book.pdf"
+end
+
+task :default => [:test]

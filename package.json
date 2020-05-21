@@ -1,0 +1,25 @@
+{
+  "name": "asciidoc-trial",
+  "version": "0.1.0",
+  "description": "asciidoc trial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nabetani/asciidoc-trial.git"
+  },
+  "author": "NABETANI Takenori",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nabetani/asciidoc-trial/issues"
+  },
+  "homepage": "https://github.com/nabetani/asciidoc-trial#readme",
+  "dependencies": {
+    "mermaid": "^8.5.1",
+    "mermaid.cli": "^0.5.1",
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.16"
+  }
+}
