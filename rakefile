@@ -57,6 +57,8 @@ task pdf: [:prepare_font] do
     asciidoctor-pdf -r
     asciidoctor-pdf-cjk
     -a pdf-style=src/style/theme.yml
+    -a stylesheet=main.css
+    -a stylesdir=src/style
     #{SOURCE}
     -o #{OUTDIR}/book.pdf)
   sh cmd.join(" ")

@@ -35,3 +35,16 @@ base:
   border_color: eeeeee
   border_radius: 4
   border_width: 0.5
+
+literal:
+  font_family: Ricty
+
+code:
+  font_family: Ricty
+
+table:
+  border-width: 0.1
+  head:
+    background-color: #f0f0f0
+    border-bottom-width: 0.1
+    font-style: bold

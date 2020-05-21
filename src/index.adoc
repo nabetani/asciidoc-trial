@@ -44,6 +44,8 @@ Markdownでは数値. でasciidocでは.を使用する。.の数で字下げ
 * レギュラー　foo bar baz 魑魅魍魎 𩹉
 * _イタリック　foo bar baz 魑魅魍魎 𩹉_
 * *_ボールドイタリック　foo bar baz 魑魅魍魎 𩹉_*
+* `mono foo bar baz 123 Il| O0 魑魅魍魎 𩹉`
+* *`mono bold foo bar baz 123 Il| O0 魑魅魍魎 𩹉`*
 
 
 === テーブル
