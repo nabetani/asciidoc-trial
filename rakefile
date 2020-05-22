@@ -54,8 +54,8 @@ end
 desc 'Create PDF'
 task pdf: [:prepare_font] do
   cmd = %W(
-    asciidoctor-pdf -r
-    asciidoctor-pdf-cjk
+    asciidoctor-pdf
+    -r asciidoctor-diagram
     -a pdf-style=src/style/theme.yml
     -a stylesheet=main.css
     -a stylesdir=src/style
