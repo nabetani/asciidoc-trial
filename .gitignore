@@ -1,3 +1,5 @@
 vendor
 node_modules
 fonts
+public/diag*.png
+public/.asciidoctor/

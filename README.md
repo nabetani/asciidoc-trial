@@ -8,6 +8,7 @@ AsciiDoc Trial
 * Ricty をインストールする
 
 ```
+$ brew cask install java
 $ bundle install
 $ bundle exec asciidoctor-pdf-cjk-kai_gen_gothic-install
 $ gem pristine numo-narray --version 0.9.1.6
