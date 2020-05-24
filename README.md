@@ -3,8 +3,8 @@ AsciiDoc Trial
 
 # ビルドまでにやること
 
-* 源真ゴシック をインストールする
-* Ricty をインストールする
+* 源真ゴシック( http://jikasei.me/font/genshin/ )をインストールする
+* Ricty( https://rictyfonts.github.io/ )をインストールする
 
 ```
 $ brew cask install java
