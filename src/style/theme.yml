@@ -48,3 +48,23 @@ table:
     background-color: #f0f0f0
     border-bottom-width: 0.1
     font-style: bold
+
+footer:
+  font_size: $base_font_size_small
+  font_color: $base_font_color
+  border_color: dddddd
+  border_width: 0.25
+  height: 25mm
+  padding: [3mm,0,0,0]
+  vertical_align: top
+
+  recto:
+    center:
+      content: 'サロゲートペア文字(𩹉)'
+    right:
+      content: '*{page-number}*'
+  verso:
+    center:
+      content: 'サロゲートペア文字(𩹉)'
+    left:
+      content: '*{page-number}*'
