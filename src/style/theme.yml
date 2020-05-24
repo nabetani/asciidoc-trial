@@ -21,6 +21,13 @@ font:
   fallbacks:
     GenYoMin
 
+
+page:
+  background_color: ffffff
+  layout: portrait
+  margin: [25mm, 12mm, 25mm, 12mm] # [top,right,bottom,left]
+  size: A4
+
 base:
   align: left
   font_color: 000000
@@ -43,28 +50,46 @@ code:
   font_family: Ricty
 
 table:
-  border-width: 0.1
+  border_width: 0.1
   head:
-    background-color: #f0f0f0
-    border-bottom-width: 0.1
-    font-style: bold
+    background_color: #f0f0f0
+    border_bottom_width: 0.1
+    font_style: bold
+
+header:
+  font_size: $base_font_size_small
+  font_color: $base_font_color
+  border_color: dddddd
+  border_width: 0.25
+  height: 22mm
+  vertical_align: bottom
+  padding: [0,0,2mm,0] # [top,right,bottom,left]
+  recto:
+    center:
+      content: 'ヘッダにサロゲートペア文字(𩹉)'
+    right:
+      content: '*{page-number}*'
+  verso:
+    center:
+      content: 'ヘッダにサロゲートペア文字(𩹉)'
+    left:
+      content: '*{page-number}*'
 
 footer:
   font_size: $base_font_size_small
   font_color: $base_font_color
   border_color: dddddd
   border_width: 0.25
-  height: 25mm
-  padding: [3mm,0,0,0]
+  height: 22mm
+  padding: [2mm,0,0,0] # [top,right,bottom,left]
   vertical_align: top
-
   recto:
     center:
-      content: 'サロゲートペア文字(𩹉)'
+      content: 'フッタにサロゲートペア文字(𩹉)'
     right:
       content: '*{page-number}*'
   verso:
     center:
-      content: 'サロゲートペア文字(𩹉)'
+      content: 'フッタにサロゲートペア文字(𩹉)'
     left:
       content: '*{page-number}*'
