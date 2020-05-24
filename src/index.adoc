@@ -3,8 +3,9 @@
 :source-highlighter: coderay
 :pdf-fontsdir: fonts
 
-:!chapter-refsig:
-:!section-refsig:
+:chapter-label: 
+:chapter-refsig: 
+:section-refsig: 
 
 :stem: latexmath
 :toclevels: 10
