@@ -99,6 +99,8 @@ sqrt(4) = 2
 * `mono foo bar baz 123 Il| O0 魑魅魍魎 𩹉`
 * *`mono bold foo bar baz 123 Il| O0 魑魅魍魎 𩹉`*
 
+イタリックフォントはは存在しないので仕方ない
+
 === 今のフォント設定では絵文字は出ない模様
 
 犬: 🐶
@@ -131,6 +133,46 @@ sqrt(4) = 2
 |3-2|3-3|3-4
 |====
 
+
+.表の中に表
+[cols="1a,2a"]
+|===
+| outer col 1 | outer col 2
+
+| Banana
+| Kiwi
+
+| Mango
+| Apple
+赤りんご
+
+[cols="1a,2a"]
+!===
+! inner col 1 ! inner col 2
+
+! 紅玉
+! 酸味が強め
+
+! ジョナゴールド
+! 果肉は硬く、緻密でシャキシャキしている
+
+!===
+
+青りんご
+
+[cols="1a,2a"]
+!===
+! inner col 1 ! inner col 2
+
+! 王林
+! 甘さが強く、独特のな香りがある。
+
+! トキ
+! 穏やかな酸味。香りが強い。
+
+!===
+
+|===
 
 .大きくて複雑な表。cols の "a" は「asciidoc記法を有効にする」という意味。
 [options="header", cols="1a,2a,5a"]
