@@ -56,13 +56,18 @@ task pdf: [:prepare_font] do
   cmd = %W(
     asciidoctor-pdf
     -r asciidoctor-diagram
+    -r ./src/style/fontsetting
+    -r asciidoctor-pdf-cjk-kai_gen_gothic
     -a pdf-style=src/style/theme.yml
     -a stylesheet=main.css
     -a stylesdir=src/style
+    -a monospace.font.family=Ricty-Regular
+    -a sans.font.family=GenShinGothic-P-Normal
+    -a serif.font.family=GenYoMin-R
     #{SOURCE}
     -o #{OUTDIR}/book.pdf)
   sh cmd.join(" ")
-  # sh "asciidoctor-pdf -r asciidoctor-pdf-cjk #{SOURCE} -o #{OUTDIR}/book.pdf"
+  # sh "PLANTUML_LIMIT_SIZE=16384 asciidoctor-pdf -r asciidoctor-pdf-cjk #{SOURCE} -o #{OUTDIR}/book.pdf"
 end
 
 task :default => [:test]
