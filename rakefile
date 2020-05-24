@@ -42,10 +42,6 @@ task :prepare_font do
     GenShinGothic-P-Bold.ttf
     Ricty-Regular.ttf
     Ricty-Bold.ttf
-    GenYoMin-B.ttc
-    GenYoMin-R.ttc
-
-
 ].each do |fn|
     copy_font(fn)
   end

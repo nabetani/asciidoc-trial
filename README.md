@@ -4,7 +4,6 @@ AsciiDoc Trial
 # ビルドまでにやること
 
 * 源真ゴシック をインストールする
-* 源様明朝( https://github.com/ButTaiwan/genyo-font )をインストールする
 * Ricty をインストールする
 
 ```
@@ -13,6 +12,12 @@ $ bundle install
 $ bundle exec asciidoctor-pdf-cjk-kai_gen_gothic-install
 $ gem pristine numo-narray --version 0.9.1.6
 $ npm install
+```
+
+# ビルド
+
+```
+$ bundle exec rake pdf
 ```
 
 # 参考にした情報

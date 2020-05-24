@@ -11,16 +11,8 @@ font:
       bold: Ricty-Bold.ttf
       bold_italic: Ricty-Bold.ttf
 
-    GenYoMin:
-      normal: GenYoMin-R.ttc
-      italic: GenYoMin-R.ttc
-      bold: GenYoMin-B.ttc
-      bold_italic: GenYoMin-B.ttc
-
-
   fallbacks:
-    GenYoMin
-
+    GenShinGothicP
 
 page:
   background_color: ffffff
