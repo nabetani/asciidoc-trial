@@ -370,6 +370,25 @@ baz -> foo : 絵文字(🐶)
 
 拡大すると、ちょっと形が崩れている。
 
+== ソースコードの分割
+
+
+[source]
+--
+\include::semifinal_section.adoc[]
+
+\include::final_section.adoc[]
+--
+
+などと書くと、別の adoc を取り込むことができる。
+付番もちゃんと繋がる。
+
+include::semifinal_section.adoc[]
+
+include::final_section.adoc[]
+
+
+
 :sectnums!:
 == 巻末資料
 
