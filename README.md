@@ -44,7 +44,6 @@ $ brew cask reinstall java
 asciidoctor 等 を入れる。
 
 ```
-$ brew cask install java
 $ bundle install
 $ bundle exec asciidoctor-pdf-cjk-kai_gen_gothic-install
 $ npm install
