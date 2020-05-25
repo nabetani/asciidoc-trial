@@ -55,8 +55,6 @@ task pdf: [:prepare_font] do
     -r ./src/style/fontsetting
     -r asciidoctor-pdf-cjk-kai_gen_gothic
     -a pdf-style=src/style/theme.yml
-    -a stylesheet=main.css
-    -a stylesdir=src/style
     -a monospace.font.family=Ricty-Regular
     -a sans.font.family=GenShinGothic-P-Normal
     -a serif.font.family=GenShinGothic-P-Normal
