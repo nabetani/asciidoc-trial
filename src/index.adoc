@@ -3,6 +3,12 @@
 :source-highlighter: coderay
 :pdf-fontsdir: fonts
 
+:doctitle: Asciidocの調査と練習
+:author: 著者は鍋谷武典だ
+:docauthor: 著者は鍋谷武典だ
+:revnumber: 0.0.0-foo-bar
+:revdate: 吉日
+
 :chapter-label: 
 :chapter-refsig: 
 :section-refsig: 
@@ -333,3 +339,54 @@ baz -> foo : 絵文字(🐶)
 こちらも「犬」は出るけど「𩹉」は出ない模様。
 
 拡大すると、ちょっと形が崩れている。
+
+:sectnums!:
+== 巻末資料
+
+[source]
+--
+:sectnums!:
+--
+と書くと、付番されなくなる。
+
+<<<
+[.text-center.lead]
+奥付
+
+[source]
+--
+== 奥付
+--
+などと書くと TOC にあらわれてしまうので、単に
+
+[source]
+--
+<<<
+[.text-center.lead]
+奥付
+--
+などとする。
+
+
+// [.center, options="autowidth",grid=none,frame=none,cols=">a,a"]
+
+[grid=none,frame=none,cols="10,1,10"]
+|===
+>|著者
+|
+s|鍋谷 武典
+
+>|発行人
+|
+s|鍋谷 武典
+
+>|レンダリング
+|
+s|Asciidoctor
+
+>|発行日
+|
+s|今日
+
+|===
+
