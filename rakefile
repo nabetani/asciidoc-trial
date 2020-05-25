@@ -59,7 +59,7 @@ task pdf: [:prepare_font] do
     -a stylesdir=src/style
     -a monospace.font.family=Ricty-Regular
     -a sans.font.family=GenShinGothic-P-Normal
-    -a serif.font.family=GenYoMin-R
+    -a serif.font.family=GenShinGothic-P-Normal
     #{SOURCE}
     -o #{OUTDIR}/book.pdf)
   sh cmd.join(" ")
