@@ -46,10 +46,7 @@ asciidoctor 等 を入れる。
 ```
 $ bundle install
 $ bundle exec asciidoctor-pdf-cjk-kai_gen_gothic-install
-$ npm install
 ```
-
-`npm install` は要らないかも(未確認)
 
 # ビルド
 
