@@ -15,15 +15,17 @@ AsciiDoc Trial
 openjdk-14 にしたい。
 
 ```
-$ brew cask info java | head -1
+$ brew cask list java
 ```
 
-として、
+とすると
+
 ```
-java: 14.0.1,7:以下略
+==> Generic Artifacts
+/Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk (443 files, 308.4MB)
 ```
 
-よりも古い場合、
+などと出力される。これが 14.0 より古い場合、
 
 ```
 $ brew cask install java
@@ -35,7 +37,7 @@ $ brew cask install java
 $ brew cask reinstall java
 ```
 
-とする。
+として、 openjdk-14 か、それ以降(これを書いている時点では 14.0.1 が最新)にする。
 
 ## asciidoctor 等
 
