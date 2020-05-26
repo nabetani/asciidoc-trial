@@ -1,8 +1,12 @@
 === hoge
 
-==== hoge について
+==== hoge について [[about-hoge]]
 
 hoge
+
+foo については <<about-foo>> を参照のこと。
+
+index.adoc 内の図 <<nonsense-figure>> を参照する。
 
 ==== hoge の歴史
 

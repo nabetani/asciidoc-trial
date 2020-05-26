@@ -340,6 +340,7 @@ Google
 
 == PlantUML
 
+[#nonsense-figure]
 .PlantUMLは、スタイルを config= で指定できる。
 [plantuml,hogeの図,config=style/plantuml.conf]
 --

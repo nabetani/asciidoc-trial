@@ -1,8 +1,10 @@
 === foo
 
-==== foo について
+==== foo について [[about-foo]]
 
 foo
+
+hoge については <<about-hoge>> を参照のこと。
 
 ==== foo の歴史
 
