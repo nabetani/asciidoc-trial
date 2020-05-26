@@ -42,7 +42,8 @@ task :prepare_font do
     GenShinGothic-P-Bold.ttf
     Ricty-Regular.ttf
     Ricty-Bold.ttf
-].each do |fn|
+    ipaexm.ttf
+  ].each do |fn|
     copy_font(fn)
   end
 end

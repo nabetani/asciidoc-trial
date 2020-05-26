@@ -7,6 +7,7 @@ AsciiDoc Trial
 
 * 源真ゴシック( http://jikasei.me/font/genshin/ )をインストールする
 * Ricty( https://rictyfonts.github.io/ )をインストールする
+* IPAex明朝( https://ipafont.ipa.go.jp/old/ipaexfont/download.html ) をインストールする
 
 ※ Font Book を起動し、フォントリストが表示されているところに TTF ファイルをまとめて drag & drop でOK。
 

@@ -1,11 +1,10 @@
 font:
   catalog:
     serif:
-      # 利用可能な良い明朝体に心当たりが無いので仕方なく sans-serif と同じフォント
-      normal: GenShinGothic-P-Normal.ttf
-      italic: GenShinGothic-P-Normal.ttf
-      bold: GenShinGothic-P-Bold.ttf
-      bold_italic: GenShinGothic-P-Bold.ttf
+      normal: ipaexm.ttf
+      italic: ipaexm.ttf
+      bold: ipaexm.ttf
+      bold_italic: ipaexm.ttf
     sans-serif:
       normal: GenShinGothic-P-Normal.ttf
       italic: GenShinGothic-P-Normal.ttf
