@@ -52,12 +52,8 @@ task pdf: [:prepare_font] do
   cmd = %W(
     asciidoctor-pdf
     -r asciidoctor-diagram
-    -r ./src/style/fontsetting
     -r asciidoctor-pdf-cjk-kai_gen_gothic
     -a pdf-style=src/style/theme.yml
-    -a monospace.font.family=Ricty-Regular
-    -a sans.font.family=GenShinGothic-P-Normal
-    -a serif.font.family=GenShinGothic-P-Normal
     #{SOURCE}
     -o #{OUTDIR}/book.pdf)
   sh cmd.join(" ")

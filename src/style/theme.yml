@@ -1,18 +1,24 @@
 font:
   catalog:
-    GenShinGothicP:
+    serif:
+      # 利用可能な良い明朝体に心当たりが無いので仕方なく sans-serif と同じフォント
       normal: GenShinGothic-P-Normal.ttf
       italic: GenShinGothic-P-Normal.ttf
       bold: GenShinGothic-P-Bold.ttf
       bold_italic: GenShinGothic-P-Bold.ttf
-    Ricty:
+    sans-serif:
+      normal: GenShinGothic-P-Normal.ttf
+      italic: GenShinGothic-P-Normal.ttf
+      bold: GenShinGothic-P-Bold.ttf
+      bold_italic: GenShinGothic-P-Bold.ttf
+    monospace:
       normal: Ricty-Regular.ttf
       italic: Ricty-Regular.ttf
       bold: Ricty-Bold.ttf
       bold_italic: Ricty-Bold.ttf
 
   fallbacks:
-    GenShinGothicP
+    sans-serif
 
 page:
   background_color: ffffff
@@ -23,7 +29,7 @@ page:
 base:
   align: left
   font_color: 000000
-  font_family: GenShinGothicP
+  font_family: sans-serif
   font_size: 10
   line_height_length: 15
   line_height: $base_line_height_length / $base_font_size
@@ -36,10 +42,10 @@ base:
   border_width: 0.5
 
 literal:
-  font_family: Ricty
+  font_family: monospace
 
 code:
-  font_family: Ricty
+  font_family: monospace
 
 table:
   border_width: 0.1
