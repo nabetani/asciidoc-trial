@@ -19,6 +19,7 @@ font:
   fallbacks:
     sans-serif
 
+
 page:
   background_color: ffffff
   layout: portrait
@@ -39,6 +40,30 @@ base:
   border_color: eeeeee
   border_radius: 4
   border_width: 0.5
+
+title_page:
+  align: center
+  background_color: ffffff
+  title:
+    top: 20%
+    font_family: sans-serif
+    font_size: 40pt
+    font_style: bold
+    font_color: 000000
+    line_height: 2
+  subtitle:
+    font_size: 24pt
+    font_family: sans-serif
+    line_height: 1
+    margin_bottom: 9cm
+  authors:
+    font_size: 20pt
+    font_family: sans-serif
+    margin_top: $base_font_size * 1.25
+  revision:
+    font_size: 16pt
+    font_family: sans-serif
+    margin_top: $base_font_size * 1.25
 
 literal:
   font_family: monospace

@@ -1,14 +1,21 @@
+:encoding: utf-8
 :lang: ja
 :doctype: book
 :source-highlighter: coderay
 :pdf-fontsdir: fonts
 :imagesdir: images
+:title-page-background-image: image:title.png[]
 
-:doctitle: Asciidocの調査と練習
-:author: 著者は鍋谷武典だ
-:docauthor: 著者は鍋谷武典だ
+:doctitle: Asciidocの調査と練習: A New Hope
+
+:author_name: 株式会社 内緒
+:author: {author_name}
+:authors:
+// if no 「:authors:」, no author text in title page.
+
 :revnumber: 0.0.0-foo-bar
 :revdate: 吉日
+:version-label: Immortal Gladiators
 
 :chapter-label: 
 :chapter-refsig: 
@@ -27,7 +34,7 @@
 :toc:
 <<<
 
-= タイトル。番号がつかない。
+//= タイトル。番号がつかない。
 
 hoge
 
