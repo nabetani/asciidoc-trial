@@ -176,22 +176,28 @@ include::try_all_sort.rb[]
 
 == 数式
 
-以下を試してみたが、うまくレンダリングされない...
+asciidoctor-mathematical を入れたらレンダリングできた。
 
-[stem]
+stem と + で書くと、中央揃え。
+
+.ほげの表現
+[stem, latexmath]
 ++++
-\int_0^\infty f(x) dx
+\begin{align*}
+  f(x) &= x^2\\
+  g(x) &= \frac{1}{x}\\
+  F(x) &= \int^a_b \frac{1}{3}x^3\\
+  G(x) &= \frac{1+\frac{x}{a}}{1+\frac{1}{1+\frac{1}{e^x}}} \\
+  R(x) &= \sum_{k=0}^{\infinity} \sin^2(x^k) \\
+  Q_i(x,y) &= \frac{ {\displaystyle \sum_{k=0}^{i} \sin^2(1+x^k) } }{ {\displaystyle \sum_{k=0}^{i} \cos^2(1+y^k) }  }
+\end{align*}
 ++++
 
-[stem,latexmath]
-++++
-C = \alpha + \beta Y^{\gamma} + \epsilon
-++++
+本文中にドルで挟む $\sum_{k=1} \frac{1}{k}$ のは、無理。
 
-[asciimath]
-++++
-sqrt(4) = 2
-++++
+行頭に「latexmath」と書いてみると
+latexmath:[C = \alpha + \beta Y^{\gamma} + \epsilon]
+こんな具合にインライン表示できる。
 
 
 == フォント
