@@ -3,3 +3,4 @@ node_modules
 fonts
 public/diag*.png
 public/.asciidoctor/
+src/generated_images

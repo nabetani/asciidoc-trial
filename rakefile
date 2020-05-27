@@ -35,6 +35,22 @@ def copy_font(fn)
   end
 end
 
+MATH_FONTS = %w[
+  cmex10.ttf cmmi10.ttf cmr10.ttf cmsy10.ttf
+  esint10.ttf eufm10.ttf msam10.ttf msbm10.ttf
+].freeze
+
+MATHFNOT_URL = "http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/"
+
+def download_mathfont(m)
+  Dir.chdir( File.join( Dir.home, "Library/Fonts" ) ) do
+    unless File.exist?(m)
+      sh "curl -LO #{MATHFNOT_URL}/#{m}"
+    end
+  end
+end
+
+
 desc 'Prepare Font'
 task :prepare_font do
   %w[
@@ -46,12 +62,17 @@ task :prepare_font do
   ].each do |fn|
     copy_font(fn)
   end
+
+  MATH_FONTS.each do |m|
+    download_mathfont(m)
+  end
 end
 
 desc 'Create PDF'
 task pdf: [:prepare_font] do
   cmd = %W(
     asciidoctor-pdf
+    -r asciidoctor-mathematical 
     -r asciidoctor-diagram
     -r asciidoctor-pdf-cjk-kai_gen_gothic
     -a pdf-style=src/style/theme.yml

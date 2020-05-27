@@ -13,6 +13,13 @@
 :authors:
 // if no 「:authors:」, no author text in title page.
 
+:math:
+:imagesoutdir: generated_images
+:stem: latexmath
+:mathematical-format: svg
+:mathematical-ppi: 300
+
+
 :revnumber: 0.0.0-foo-bar
 :revdate: 吉日
 :version-label: Immortal Gladiators
