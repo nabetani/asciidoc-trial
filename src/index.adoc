@@ -39,5 +39,9 @@
 :toc:
 <<<
 
+// 各 include:: の間に空行を挟まないと不幸になることがある。
+
+include::text-deco.adoc[]
+
 include::tables.adoc[]
 
