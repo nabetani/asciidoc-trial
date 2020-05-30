@@ -72,9 +72,9 @@ desc 'Create PDF'
 task pdf: [:prepare_font] do
   cmd = %W(
     asciidoctor-pdf
-    -r asciidoctor-mathematical 
+    -r asciidoctor-pdf-linewrap-ja
+    -r asciidoctor-mathematical
     -r asciidoctor-diagram
-    -r asciidoctor-pdf-cjk-kai_gen_gothic
     -a pdf-style=src/style/theme.yml
     #{SOURCE}
     -o #{OUTDIR}/book.pdf)
