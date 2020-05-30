@@ -29,6 +29,7 @@
 
 :important-caption: 重要!
 :warning-caption: 警告!
+:caution-caption: 注意!
 :example-caption: 例
 :table-caption: 表
 :figure-caption: 図
@@ -44,4 +45,6 @@
 include::text-deco.adoc[]
 
 include::tables.adoc[]
+
+include::admonition.adoc[]
 

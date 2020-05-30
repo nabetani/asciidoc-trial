@@ -97,6 +97,15 @@ header:
     left:
       content: '*{page-number}*'
 
+
+admonition:
+  column-rule-width: 0.3mm
+  column-rule-color: 000000
+  border_width: 0.3mm
+  border_color: 000000
+  border-radius: 2mm
+  min-width: 40mm
+
 footer:
   font_size: $base_font_size_small
   font_color: $base_font_color
