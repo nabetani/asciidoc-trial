@@ -15,9 +15,15 @@ Foo::
 ^h|ヘッダ
 ^h|ヘッダ
 ^h|ヘッダ
-|特に意味のない文章。折返しがどうなるかを確認するためにちょっと長めに書いておく。文を考えるのがめんどくさくなってきたので繰り返す。繰り返す前に非日本語を混ぜておく。 Lorem Ipsum. 特に意味のない文章。折返しがどうなるかを確認するためにちょっと長めに書いておく。文を考えるのがめんどくさくなってきたので繰り返す。繰り返す前に非日本語を混ぜておく。
-|特に意味のない文章。折返しがどうなるかを確認するためにちょっと長めに書いておく。文を考えるのがめんどくさくなってきたので繰り返す。繰り返す前に非日本語を混ぜておく。 Lorem Ipsum. 特に意味のない文章。折返しがどうなるかを確認するためにちょっと長めに書いておく。文を考えるのがめんどくさくなってきたので繰り返す。繰り返す前に非日本語を混ぜておく。
-|特に意味のない文章。折返しがどうなるかを確認するためにちょっと長めに書いておく。文を考えるのがめんどくさくなってきたので繰り返す。繰り返す前に非日本語を混ぜておく。 Lorem Ipsum. 特に意味のない文章。折返しがどうなるかを確認するためにちょっと長めに書いておく。文を考えるのがめんどくさくなってきたので繰り返す。繰り返す前に非日本語を混ぜておく。
+|
+ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz!
+LinessolongthatnoonecanwrapthemcorrectlyLinessolongthatnoonecanwrapthemcorrectly
+|
+ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz!
+LinessolongthatnoonecanwrapthemcorrectlyLinessolongthatnoonecanwrapthemcorrectly
+|
+ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz!
+LinessolongthatnoonecanwrapthemcorrectlyLinessolongthatnoonecanwrapthemcorrectly
 |===
 --
 表のあとも字下げが続く
