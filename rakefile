@@ -81,7 +81,6 @@ task pdf: [:prepare_font] do
     #{SOURCE}
     -o #{OUTDIR}/book.pdf)
   sh cmd.join(" ")
-  # sh "PLANTUML_LIMIT_SIZE=16384 asciidoctor-pdf -r asciidoctor-pdf-cjk #{SOURCE} -o #{OUTDIR}/book.pdf"
 end
 
 task :default => [:test]
