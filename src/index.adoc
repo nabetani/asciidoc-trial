@@ -1,0 +1,53 @@
+:encoding: utf-8
+:lang: ja
+:doctype: book
+:source-highlighter: coderay
+:pdf-fontsdir: fonts
+:imagesdir: images
+:title-page-background-image: image:title.png[]
+
+:doctitle: Asciidocの調査と練習: A New Hope
+
+:author_name: 株式会社 内緒
+:author: {author_name}
+:authors:
+// if no 「:authors:」, no author text in title page.
+
+:math:
+:imagesoutdir: generated_images
+:stem: latexmath
+:mathematical-format: svg
+:mathematical-ppi: 300
+
+:revnumber: 0.0.0-foo-bar
+:revdate: 吉日
+:version-label: Immortal Gladiators
+
+:chapter-label: 
+:chapter-refsig: 
+:section-refsig: 
+
+:important-caption: 重要!
+:warning-caption: 警告!
+:caution-caption: 注意!
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:toclevels: 10
+:sectnums:
+:sectnumlevels: 10
+:toc-title: 目次
+:toc:
+<<<
+
+// 各 include:: の間に空行を挟まないと不幸になることがある。
+
+include::text-deco.adoc[]
+
+include::tables.adoc[]
+
+include::admonition.adoc[]
+
+include::image.adoc[]
+
+include::mathex.adoc[]

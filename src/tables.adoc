@@ -1,0 +1,30 @@
+== 表
+
+=== simple な表
+
+=== 説明一覧内の表
+
+Foo::
+定義リスト内は字下げがある。 +
+字下げがある領域に表を入れるときは、表も字下げしたい
++
+--
+.表のタイトルはここに書く
+[cols="3,4,5"]
+|===
+^h|ヘッダ
+^h|ヘッダ
+^h|ヘッダ
+|
+ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz!
+LinessolongthatnoonecanwrapthemcorrectlyLinessolongthatnoonecanwrapthemcorrectly
+|
+ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz!
+LinessolongthatnoonecanwrapthemcorrectlyLinessolongthatnoonecanwrapthemcorrectly
+|
+ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz! ちゃーちゃん。ちゃうちゃう？！ Foobar (foobar foobar) bazbaz. ちゃーちゃん。「ちゃうちゃう？！」“Foobar” (foobar foobar) bazbaz!
+LinessolongthatnoonecanwrapthemcorrectlyLinessolongthatnoonecanwrapthemcorrectly
+|===
+--
+表のあとも字下げが続く
+
