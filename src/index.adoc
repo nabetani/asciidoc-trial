@@ -48,4 +48,6 @@ include::tables.adoc[]
 
 include::admonition.adoc[]
 
+include::image.adoc[]
+
 include::mathex.adoc[]
