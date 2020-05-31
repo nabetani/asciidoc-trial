@@ -1,3 +1,16 @@
+# asciidoctor-pdf-linewrap-ja という gem を参考にして作った、 prawn の改行制御を変更するライブラリ。
+# `require 'path/to/prawn-linewrap-ja'` などとして使う。
+#
+# asciidoctor-pdf で使う場合は `asciidoctor-pdf -r path/to/prawn-linewrap-ja` などとする。
+#
+# require すると、Prawn::Text::Formatted モジュールの LineWrap クラスを書き換える。
+# 変更内容は
+# * disable_wrap_by_char を常に true にする
+# * 漢字やひらがなが続く文字列の途中での改行を許可する
+# 辺り。
+# * 行頭禁則・行末禁則の文字については asciidoctor-pdf-linewrap-ja を参考にした。
+# * 分離禁止文字 については定数定義はあるものの、実装していない。
+
 require "prawn"
 
 module Prawn
