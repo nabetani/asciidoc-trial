@@ -4,7 +4,7 @@
 
 [#sparrow]
 .雀の画像
-image::雀.jpg[雀です, pdfwidth=50vw, width=50%]
+image::雀画像.jpg[雀です, pdfwidth=50vw, width=50%]
 
 === SVG
 
@@ -16,6 +16,42 @@ monospace, sans-serif, serif なら大丈夫。
 
 image::sample.svg[]
 
+=== 表の中に画像
+
+.三種類の画像
+[cols="^.^1,^.^1,^.^1,^.^1,^.^1"]
+|===
+h|漢字表記
+|雀
+|白鶺鴒
+|黄鶲
+|不明
+h|カナ表記
+|スズメ
+|ハクセキレイ
+|キビタキ
+|フメイ
+h|写真
+a|image::雀画像.jpg[]
+a|image::白鶺鴒(ハクセキレイ).JPG[]
+a|image::黄鶲(キビタキ).JPG[]
+a|image::unknown-bird.JPG[]
+|===
+
+HTML だと大丈夫だけど、PDF だと画像の下に若干空白ができる。
+
+=== インライン画像
+
+インライン画像の場合、 `asciidoctor-pdf-linewrap-ja` が悪さをして日本語ファイル名の表示に失敗する。
+
+雀(
+image:雀画像.jpg[width=20, pdfwidth=15vw]
+), 謎の鳥(
+image:unknown-bird.JPG[width=20, pdfwidth=15vw]
+), SVG(
+image:sample.svg[width=20, pdfwidth=15vw]
+)
+
 === 回り込み
 float 指定だと、HTML に出すとテキストの回り込みができるものの、　PDF だとできない。
 残念。
@@ -23,32 +59,32 @@ float 指定だと、HTML に出すとテキストの回り込みができるも
 回り込みができないのでわりとどうでもいいけど、右寄せも左寄せもできない。残念。
 
 .float="right"な 雀です。
-image::雀.jpg[雀です, 200, float="right"]
+image::雀画像.jpg[雀です, 200, float="right"]
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 .float="left"な 雀です。
-image::雀.jpg[雀です, 200, float="left"]
+image::雀画像.jpg[雀です, 200, float="left"]
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 
 .role="right"な 雀です。
-image::雀.jpg[雀です, 200, role="right"]
+image::雀画像.jpg[雀です, 200, role="right"]
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 .role="left"な 雀です。
-image::雀.jpg[雀です, 200, role="left"]
+image::雀画像.jpg[雀です, 200, role="left"]
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 
 [.text-right]
 .text-right な雀です
-image::雀.jpg[雀です, 200]
+image::雀画像.jpg[雀です, 200]
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 [.text-left]
 .text-left な雀です
-image::雀.jpg[雀です, 200]
+image::雀画像.jpg[雀です, 200]
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
