@@ -37,6 +37,10 @@ module Prawn
           @disable_wrap_by_char = true
         end
 
+        def update_line_status_based_on_last_output
+          @line_contains_more_than_one_word = @fragment_output && 1<tokenize(@fragment_output).size
+        end
+
         def end_of_the_line_reached(segment)
           update_line_status_based_on_last_output
           unless @line_contains_more_than_one_word
