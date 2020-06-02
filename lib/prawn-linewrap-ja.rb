@@ -54,48 +54,71 @@ module Prawn
           /[#{s}]/
         end
 
-        # 行頭禁則文字
-        PROHIBIT_LINE_BREAK_BEFORE = or_rgexp(
-          ')}]' +
-          '’”）〕］｝〉》」』】｠〙〗»〟' +  # 終わり括弧類（cl-02）
+        PROHIBIT_LINE_BREAK_BEFORE_CHARS =
           '‐〜゠–' + # ハイフン類（cl-03）
+          '·・：；' + # 中点類（cl-05）
           '！？‼⁇⁈⁉' + # 区切り約物（cl-04）
-          '・：；' + # 中点類（cl-05）
-          '。．' + # 句点類（cl-06）
-          '、，' + # 読点類（cl-07）
+          '･・：；' + # 中点類（cl-05）
+          '。．｡' + # 句点類（cl-06）
+          '、，､' + # 読点類（cl-07）
           'ヽヾゝゞ々〻' + # 繰返し記号（cl-09）
-          'ー' + # 長音記号（cl-10）
-          'ぁぃぅぇぉァィゥェォっゃゅょゎゕゖッャュョヮヵヶㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ' + # 小書きの仮名（cl-11） ただし、「ㇷ゚」は unicode で1文字ではないので除く
-          '）〕］' # 割注終わり括弧類（cl-29）
-        )
-        # 行末禁則文字
-        PROHIBIT_LINE_BREAK_AFTER = or_rgexp(
-          '({[' +
-          '‘“（〔［｛〈《「『【｟〘〖«〝' + # 始め括弧類（cl-01）
-          '（〔［' # 割注始め括弧類（cl-28）
-        )
-        # 分離禁止文字
-        PROHIBIT_DIVIDE = '—…‥〳〴〵' # 分離禁止文字（cl-08）
+          'ーｰ' + # 長音記号（cl-10）
+          'ぁぃぅぇぉァィゥェォっゃゅょゎゕゖッャュョヮヵヶㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ'.freeze # 小書きの仮名（cl-11）
 
-        ALNUM=/[a-zA-Z0-9_@]/
+        # 行頭禁則
+        PROHIBIT_LINE_BREAK_BEFORE = 
+          /.[\-\.\,\!\?\:\;\p{Terminal_Punctuation}\p{Close_Punctuation}\p{Final_Punctuation}#{PROHIBIT_LINE_BREAK_BEFORE_CHARS}]/.freeze
+
+        PROHIBIT_LINE_BREAK_AFTER_CHARS = "¿¡⸘"
+
+        # 行末禁則
+        PROHIBIT_LINE_BREAK_AFTER =
+          /[\p{Initial_Punctuation}\p{Open_Punctuation}#{PROHIBIT_LINE_BREAK_AFTER_CHARS}]./.freeze
+
+        # 各種ダッシュ。種類が異なってもよい。
+        DASH_PATTERN = /[\u{2012}\u{2013}\u{2014}\u{2015}\u{2E3A}\u{2E3B}]{2}/
+
+        # 同一種類のリーダーの2個繰り返し
+        LEADER_PATTERN = /\u{2026}\u{2026}|\u{2025}\u{2025}|\u{22EF}\u{22EF}/
+
+        ATMARKS = "\u{0040}\u{FE6B}\u{FF20}"
+        UNDERSCORES = "\u{005F}\u{0332}\u{FF3F}"
+
+        # 英数字・キリル文字・ギリシャ文字・コンマ・ピリオド の繰り返し
+        ALNUM_PATTERN = /[\p{Latin}\p{Greek}\p{Cyrillic}0-9０-９#{ATMARKS}#{UNDERSCORES}]{2}/
+
+        EXTRA_SPLITTABLE_CHAR =
+          'ーｰ' + # 音引き
+          '〇∞∴♂♀＆＊☆★○●◎◇◆□■△▲▽▼※♪◯©®'+ # 色々
+          "\u{2026}\u{2025}\u{22EF}" + # リーダー
+          "\u{2012}\u{2013}\u{2014}\u{2015}\u{2E3A}\u{2E3B}" # 各種ダッシュ
+
+        def split_pattern(s)
+          case s
+          when PROHIBIT_LINE_BREAK_BEFORE,
+               PROHIBIT_LINE_BREAK_AFTER,
+               DASH_PATTERN,
+               LEADER_PATTERN
+            false
+          when /[\s\p{Space}\u{200B}]/, # 空白(200b は、ゼロ幅空白)
+               /[\p{Hiragana}\p{Katakana}#{EXTRA_SPLITTABLE_CHAR}\p{Han}]/, # 日本語等
+               /[\p{Initial_Punctuation}\p{Open_Punctuation}]/, # 開き括弧等
+               /[\p{Terminal_Punctuation}\p{Close_Punctuation}\p{Final_Punctuation}]/ # 閉じ括弧等
+            true
+          else
+            false
+          end
+        end
 
         def tokenize(fragment)
           fragment.size.times.with_object([""]) do |ix,s|
             cur = fragment[ix]
             if s.last.empty?
               s.last << cur
-            elsif PROHIBIT_LINE_BREAK_AFTER===s.last[-1]
-              s.last << cur
-            elsif PROHIBIT_LINE_BREAK_BEFORE===cur
-              s.last << cur
-            elsif ALNUM===s.last[-1]
-              if ALNUM===cur
-                s.last << cur
-              else
-                s.push cur
-              end
-            else
+            elsif split_pattern(s.last[-1]+cur)
               s.push cur
+            else
+              s.last << cur
             end
           end
         end
