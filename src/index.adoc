@@ -44,6 +44,8 @@
 
 include::text-deco.adoc[]
 
+include::line-wrap.adoc[]
+
 include::tables.adoc[]
 
 include::admonition.adoc[]
