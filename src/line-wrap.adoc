@@ -82,7 +82,7 @@ a-zA-Z 以外の文字のチェック +
 
 <<<
 
-.改行制御その2!
+.改行制御その2
 [cols="1,1,1,1,1"]
 |===
 |
@@ -189,5 +189,28 @@ iiほげほげほげほげ 12.34 +
 iiiほげほげほげほげ 12.34 +
 iiiiほげほげほげほげ 12.34 +
 iiiiiほげほげほげほげ 12.34 +
+
+|===
+
+<<<
+
+.改行制御その3
+[cols="1,1,1,1,1"]
+|===
+|
+(aaaaaaaaaaaa)(bbb)(ccc) +
+(aaaaaaaaaaaaa)(bbb)(ccc) +
+(aaaaaaaaaaaaaa)(bbb)(ccc) +
+(aaaaaaaaaaaaaaa)(bbb)(ccc) +
+(aaaaaaaaaaaaaaaa)(bbb)(ccc) +
+「aaaaaaaaaaaa」「bbb」「ccc」 +
+「aaaaaaaaaaaaa」「bbb」「ccc」 +
+「aaaaaaaaaaaaaa」「bbb」「ccc」 +
+「aaaaaaaaaaaaaaa」「bbb」「ccc」 +
+「aaaaaaaaaaaaaaaa」「bbb」「ccc」 +
+|
+|
+|
+|
 
 |===
