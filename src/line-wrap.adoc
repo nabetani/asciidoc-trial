@@ -68,4 +68,13 @@ iiiiげほげほげほげっちゅーです +
 
 |
 日本語と English が混ざっている文章は、 alphabetical word の途中では改行しないが、 japanese word の途中で break line しても ok。
+
+げほげほげほげほげ Bücher +
+げほげほげほげほげ bóka +
+げほげほげほげほげ Söhne +
+げほげほげほげほげ Füße +
+げほげほげほげほげ Þaðan +
+げほげほげほげほげ fjörður +
+げほげほげほげほげ naïf +
+げほげほげほげほげ uña +
 |===
