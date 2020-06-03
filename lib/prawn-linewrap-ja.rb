@@ -38,7 +38,9 @@ module Prawn
         end
 
         def update_line_status_based_on_last_output
-          @line_contains_more_than_one_word = @fragment_output && 1<tokenize(@fragment_output).size
+          if @fragment_output && 1<tokenize(@fragment_output).size
+            @line_contains_more_than_one_word = true
+          end
         end
 
         def end_of_the_line_reached(segment)
@@ -122,6 +124,19 @@ module Prawn
             end
           end
         end
+
+        def end_of_the_line_reached(segment)
+          if !@fragment_output.strip.empty? && !segment.strip.empty?
+            @line_contains_more_than_one_word = true
+          end
+
+          update_line_status_based_on_last_output
+          unless @line_contains_more_than_one_word
+            wrap_by_char(segment)
+          end
+          @line_full = true
+        end
+
       end
     end
   end
