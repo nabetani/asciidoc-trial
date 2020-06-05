@@ -87,6 +87,9 @@ GEM
     crass (1.0.6)
     css_parser (1.7.1)
       addressable
+    debase (0.2.4.1)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.9)
     erubi (1.9.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -131,6 +134,9 @@ GEM
     prawn-templates (0.1.2)
       pdf-reader (~> 2.0)
       prawn (~> 2.2)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     public_suffix (4.0.5)
     rack (2.2.2)
     rack-test (1.1.0)
@@ -162,6 +168,8 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rake (13.0.1)
+    ruby-debug-ide (0.7.2)
+      rake (>= 0.8.1)
     ruby-enum (0.8.0)
       i18n
     ruby-rc4 (0.1.5)
@@ -194,7 +202,10 @@ DEPENDENCIES
   asciidoctor-mathematical
   asciidoctor-pdf
   coderay
+  debase
+  pry
   rails
+  ruby-debug-ide
 
 BUNDLED WITH
    2.1.4

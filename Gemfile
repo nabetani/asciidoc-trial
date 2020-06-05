@@ -11,3 +11,6 @@ gem "asciidoctor-diagram"
 gem "asciidoctor-pdf"
 gem "coderay"
 gem "asciidoctor-mathematical"
+gem "ruby-debug-ide"
+gem 'debase'
+gem 'pry'

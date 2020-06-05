@@ -1,0 +1,30 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Local File",
+      "type": "Ruby",
+      "request": "launch",
+      "program": "${workspaceRoot}/vendor/bundle/ruby/2.6.0/bin/asciidoctor-pdf",
+      "args": [
+        "-r",
+        "${workspaceRoot}/lib/prawn-linewrap-ja",
+        "-r",
+        "${workspaceRoot}/lib/asciidoctor-pdf-horz-dlist",
+        "-r",
+        "asciidoctor-mathematical",
+        "-r",
+        "asciidoctor-diagram",
+        "-a",
+        "pdf-style=src/style/theme.yml",
+        "src/index.adoc",
+        "-o",
+        "public/book.pdf"
+      ],
+      "useBundler": true
+    }
+  ]
+}
