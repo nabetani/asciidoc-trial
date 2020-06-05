@@ -37,20 +37,12 @@ module Prawn
           @disable_wrap_by_char = true
         end
 
-        def update_line_status_based_on_last_output
-          if @fragment_output && 1<tokenize(@fragment_output).size
-            @line_contains_more_than_one_word = true
-          end
-        end
+        # def update_line_status_based_on_last_output
+        #   if @fragment_output && 1<tokenize(@fragment_output).size
+        #     @line_contains_more_than_one_word = true
+        #   end
+        # end
 
-        def end_of_the_line_reached(segment)
-          update_line_status_based_on_last_output
-          unless @line_contains_more_than_one_word
-            wrap_by_char(segment)
-          end
-          @line_full = true
-        end
-        
         def self.or_rgexp( chars )
           s = chars.chars.map{ |e| Regexp.escape(e) }.join
           /[#{s}]/

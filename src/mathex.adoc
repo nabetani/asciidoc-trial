@@ -2,15 +2,17 @@
 
 === センタリングされた数式
 
-[stem, lathxmath]
+[stem, latexmath]
 ++++
-y=\sum_{i=0}^{\infty}x^{i}
+y=\sum_{i=0}^{\infty}x^{i} \newline
+y=\sum_{i=0}^{\infty}x^{i} \\
+{\mathrm hogefuga} = {\mathrm {hogefuga} } + 1 ( mathrm )
 ++++
 
 === 文章中の数式
 
 文章中に数式を書くには、ソースコード内では一旦改行して
-「`lathxmath:`」に続けて `[` から `]` 内に書く。
+「`latexmath:`」に続けて `[` から `]` 内に書く。
 
 こんなぐあいに
 latexmath:[y=\sum_{i=0}^{\infty}x^{i}]
