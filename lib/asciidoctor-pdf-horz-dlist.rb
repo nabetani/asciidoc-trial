@@ -1,10 +1,43 @@
-#require "asciidoctor-pdf"
+require "asciidoctor-pdf"
+require "pry"
 
 module Asciidoctor
   module PDF
     class Converter
 
-            def convert_dlist node
+      def convert_paragraph node
+        add_dest_for_block node if node.id
+        prose_opts = { margin_bottom: 0, hyphenate: true }
+        lead = (roles = node.roles).include? 'lead'
+        if (align = resolve_alignment_from_role roles)
+          prose_opts[:align] = align
+        end
+
+        if (text_indent = @theme.prose_text_indent || 0) > 0
+          prose_opts[:indent_paragraphs] = text_indent
+        end
+
+        # TODO: check if we're within one line of the bottom of the page
+        # and advance to the next page if so (similar to logic for section titles)
+        layout_caption node.title if node.title?
+
+        if lead
+          theme_font :lead do
+            layout_prose node.content, prose_opts
+          end
+        else
+          layout_prose node.content, prose_opts
+        end
+
+        if (margin_inner_val = @theme.prose_margin_inner) &&
+            (next_block = (siblings = node.parent.blocks)[(siblings.index node) + 1]) && next_block.context == :paragraph
+          margin_bottom margin_inner_val
+        else
+          margin_bottom @theme.prose_margin_bottom
+        end
+      end
+
+      def convert_dlist node
         add_dest_for_block node if node.id
 
         case (style = node.style)
@@ -43,6 +76,8 @@ module Asciidoctor
             desc_padding = [0, 10, (@theme.prose_margin_bottom || 0) * 0.5, 10]
             term_kerning = default_kerning?
           end
+          term_padding[3]=0
+          desc_padding[3]=0
           node.items.each do |terms, desc|
             term_text = terms.map(&:text).join ?\n
             if (term_width = width_of term_text, inline_format: term_inline_format, kerning: term_kerning) > max_term_width
@@ -69,10 +104,10 @@ module Asciidoctor
           end
           max_term_width += (term_padding[1] + term_padding[3])
           term_column_width = [max_term_width, bounds.width * 0.5].min
-          table table_data, position: :left, cell_style: { border_width: 0 }, column_widths: [term_column_width] do
+          table table_data, position: :left, cell_style: { border_width: 3 }, column_widths: [term_column_width] do
             @pdf.layout_table_caption node if node.title?
           end
-          margin_bottom (@theme.prose_margin_bottom || 0) * 0.5
+          margin_bottom 0 # (@theme.prose_margin_bottom || 0) * 0.5
         when 'qanda'
           @list_numerals << '1'
           convert_outline_list node
