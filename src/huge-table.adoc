@@ -1,6 +1,58 @@
 == 大きな表
+=== アトリビュートを変えてみる
+==== head-font-size=10, body-font-size=10, padding="0,0,0,0"
+.hoge
+[cols="1,1,1,1", head-font-size=10, body-font-size=10, padding="0,0,0,0"]
+|===
+include::table_body.adoc[]
+|===
 
-[cols=",,,,,"]
+==== head-font-size=20, body-font-size=10, padding="0,0,0,0"
+.hoge
+[cols="1,1,1,1", head-font-size=20, body-font-size=10, padding="0,0,0,0"]
+|===
+include::table_body.adoc[]
+|===
+
+==== head-font-size=10, body-font-size=20, padding="0,0,0,0"
+.hoge
+[cols="1,1,1,1", head-font-size=10, body-font-size=20, padding="0,0,0,0"]
+|===
+include::table_body.adoc[]
+|===
+
+==== head-font-size=10, body-font-size=10, padding="20,0,0,0"
+.hoge
+[cols="1,1,1,1", head-font-size=10, body-font-size=10, padding="20,0,0,0"]
+|===
+include::table_body.adoc[]
+|===
+
+==== head-font-size=10, body-font-size=10, padding="0,20,0,0"
+.hoge
+[cols="1,1,1,1", head-font-size=10, body-font-size=10, padding="0,20,0,0"]
+|===
+include::table_body.adoc[]
+|===
+
+==== head-font-size=10, body-font-size=10, padding="0,0,20,0"
+.hoge
+[cols="1,1,1,1", head-font-size=10, body-font-size=10, padding="0,0,20,0"]
+|===
+include::table_body.adoc[]
+|===
+
+==== head-font-size=10, body-font-size=10, padding="0,0,0,20"
+.hoge
+[cols="1,1,1,1", head-font-size=10, body-font-size=10, padding="0,0,0,20"]
+|===
+include::table_body.adoc[]
+|===
+
+
+=== 大きな表
+
+[cols=",,,,,", head-font-size=7, body-font-size=7, padding="0,0,0,0"]
 .hoge
 |===
 h|toto
@@ -115,7 +167,16 @@ h|tyty
 |foobar
 |baz
 |qux
-|quux
+|quux +
+quux +
+quux +
+quux +
+quux +
+quux +
+quux +
+quux +
+quux +
+quux +
 |corge
 |grault
 |garply

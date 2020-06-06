@@ -1,0 +1,18 @@
+
+h|toto
+h|titi
+h|tata
+h|tutu
+
+|foo +
+bar +
+baz +
+|hoge +
+fuga +
+piyo +
+|one +
+two +
+three +
+|orange +
+grape +
+kiwi +
