@@ -4,6 +4,16 @@ require "pry"
 module Asciidoctor
   module PDF
     class Converter
+      def get_node_attriute node, name, fallback
+        t = node.attributes[name]
+        return fallback unless t
+
+        begin
+          return Float(t)
+        rescue ArgumentError => e
+          raise ArgumentError, "#{name} value should be floating value, but it is #{t.inspect} (#{e.inspect})"
+        end
+      end
 
       def convert_paragraph node
         add_dest_for_block node if node.id
@@ -32,15 +42,10 @@ module Asciidoctor
         dlist = node&.parent&.parent&.parent
 
         if dlist&.style=="horizontal"
-          raw_m = dlist.attributes["margin-bottom"]
-          begin
-            m = raw_m && Float(raw_m)
-            if m
-              margin_bottom m
-              return
-            end
-          rescue ArgumentError => e
-            raise ArgumentError, "margin-bottom value should be floating value, but it is #{raw_m.inspect} (#{e.inspect})"
+          m = get_node_attriute( dlist, "margin-bottom", nil )
+          if m
+            margin_bottom m
+            return
           end
         end
         if (margin_inner_val = @theme.prose_margin_inner) &&
@@ -85,9 +90,21 @@ module Asciidoctor
             else
               term_inline_format = [inherited: { styles: term_font_styles }]
             end
+            margin_left = get_node_attriute(node, 'margin-left', 10)
+            margin_bottom = get_node_attriute(node, 'margin-bottom', (@theme.prose_margin_bottom || 0) * 0.5 )
             term_line_metrics = calc_line_metrics @theme.description_list_term_line_height || @theme.base_line_height
-            term_padding = [term_line_metrics.padding_top, 10, (@theme.prose_margin_bottom || 0) * 0.5 + term_line_metrics.padding_bottom, 10]
-            desc_padding = [0, 10, (@theme.prose_margin_bottom || 0) * 0.5, 10]
+            term_padding = [
+              term_line_metrics.padding_top, # up
+              10, # right
+              margin_bottom + term_line_metrics.padding_bottom, # bottom
+              margin_left # left
+            ]
+            desc_padding = [
+              0, # up
+              10, # right
+              margin_bottom, # bottom
+              10 # left
+            ]
             term_kerning = default_kerning?
           end
           node.items.each do |terms, desc|
@@ -149,7 +166,6 @@ module Asciidoctor
           end
         end
       end
-
     end
   end
 end
