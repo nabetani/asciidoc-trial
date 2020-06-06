@@ -17,6 +17,10 @@ module Asciidoctor
         ex_head_font_size = get_node_attriute_float(node, "head-font-size", nil )
         ex_body_font_size = get_node_attriute_float(node, "body-font-size", nil )
         ex_padding = get_node_attriute_float_array(node, "padding", nil )
+        unless !ex_padding || ex_padding.size==4
+          msg = "item count in padding should be 4, but it is #{ex_padding.size} in #{ex_padding.inspect}"
+          raise ArgumentError, msg
+        end
 
         tbl_bg_color = resolve_theme_color :table_background_color
         # QUESTION should we fallback to page background color? (which is never transparent)
@@ -170,7 +174,7 @@ module Asciidoctor
                 cell_data[:leading] = cell_line_metrics.leading
                 # TODO: patch prawn-table to pass through final_gap option
                 #cell_data[:final_gap] = cell_line_metrics.final_gap
-                cell_data[:padding] = cell_padding
+                cell_data[:padding] = ex_padding || cell_padding
               end
               unless cell_data.key? :content
                 cell_text = cell.text.strip
