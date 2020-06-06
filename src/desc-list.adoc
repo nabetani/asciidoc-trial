@@ -1,0 +1,17 @@
+== 定義リスト的ななにか
+
+Foo:: bar
+Baz Qux:: quux corge
+Grault Garply Waldo:: fred plugh xyzzy thud
+
+[horizontal]
+Foo:: bar
+Baz Qux:: quux corge
+Grault Garply Waldo:: fred plugh xyzzy thud
+
+//-
+
+Foo:: bar
+Baz Qux:: quux corge
+Grault Garply Waldo:: fred plugh xyzzy thud
+
