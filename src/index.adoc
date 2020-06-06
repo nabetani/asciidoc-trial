@@ -42,6 +42,8 @@
 
 // 各 include:: の間に空行を挟まないと不幸になることがある。
 
+include::xref.adoc[]
+
 include::text-deco.adoc[]
 
 include::desc-list.adoc[]
