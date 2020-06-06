@@ -73,13 +73,15 @@ task pdf: [:prepare_font] do
   here = File.split( __FILE__ )[0]
   prawn_linewrap_ja = File.join( here, "lib/prawn-linewrap-ja" )
   asciidoctor_pdf_horz_dlist = File.join( here, "lib/asciidoctor-pdf-horz-dlist" )
+  asciidoctor_abstractblock_xreftext = File.join( here, "lib/asciidoctor-abstractblock-xreftext.rb" )
   cmd = %W(
     asciidoctor-pdf
     -r #{prawn_linewrap_ja}
+    -r #{asciidoctor_abstractblock_xreftext}
+    -r #{asciidoctor_pdf_horz_dlist}
     -r asciidoctor-mathematical
     -r asciidoctor-diagram
     -a pdf-style=src/style/theme.yml
-    -r #{asciidoctor_pdf_horz_dlist}
     #{SOURCE}
     -o #{OUTDIR}/book.pdf)
   sh cmd.join(" ")
