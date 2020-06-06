@@ -21,7 +21,8 @@ module Asciidoctor
           msg = "item count in padding should be 4, but it is #{ex_padding.size} in #{ex_padding.inspect}"
           raise ArgumentError, msg
         end
-
+        ex_line_height = get_node_attriute_float(node, "line-height", theme.base_line_height )
+        
         tbl_bg_color = resolve_theme_color :table_background_color
         # QUESTION should we fallback to page background color? (which is never transparent)
         #tbl_bg_color = resolve_theme_color :table_background_color, @page_bg_color
@@ -40,6 +41,7 @@ module Asciidoctor
         header_cell_line_metrics = nil
 
         table_data = []
+
         theme_font :table do
           head_rows = node.rows[:head]
           body_rows = node.rows[:body]
@@ -95,7 +97,7 @@ module Asciidoctor
             kerning: default_kerning?,
             text_color: @font_color,
           }
-          body_cell_line_metrics = calc_line_metrics theme.base_line_height
+          body_cell_line_metrics = calc_line_metrics ex_line_height
           (body_rows + node.rows[:foot]).each do |row|
             table_data << (row.map do |cell|
               cell_data = base_cell_data.merge \
@@ -122,7 +124,7 @@ module Asciidoctor
                         font_style: header_cell_font_info[:style],
                         text_transform: @text_transform,
                       }
-                      header_cell_line_metrics = calc_line_metrics theme.base_line_height
+                      header_cell_line_metrics = calc_line_metrics ex_line_height
                     end
                   end
                   if (val = resolve_theme_color :table_header_cell_background_color, head_bg_color)
@@ -139,7 +141,7 @@ module Asciidoctor
                   cell_data[:font] = mono_cell_font_info[:family]
                   cell_data[:size] = mono_cell_font_info[:size]
                   cell_data[:text_color] = @font_color
-                  cell_line_metrics = calc_line_metrics theme.base_line_height
+                  cell_line_metrics = calc_line_metrics ex_line_height
                 end
               when :literal
                 # NOTE: we want the raw AsciiDoc in this case
@@ -152,7 +154,7 @@ module Asciidoctor
                   cell_data[:font] = literal_cell_font_info[:family]
                   cell_data[:size] = literal_cell_font_info[:size]
                   cell_data[:text_color] = @font_color
-                  cell_line_metrics = calc_line_metrics theme.base_line_height
+                  cell_line_metrics = calc_line_metrics ex_line_height
                 end
               when :verse
                 cell_data[:content] = guard_indentation cell.text
