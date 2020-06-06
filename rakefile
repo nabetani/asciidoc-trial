@@ -27,7 +27,11 @@ def asciidoctor_pdf_horz_dlist
 end
 
 def asciidoctor_abstractblock_xreftext
-  relative_lib "asciidoctor-abstractblock-xreftext.rb"
+  relative_lib "asciidoctor-abstractblock-xreftext"
+end
+
+def asciidoctot_table_font
+  relative_lib "asciidoctot-table-font"
 end
 
 def copy_font(fn)
@@ -85,6 +89,7 @@ task pdf: [:prepare_font] do
     -r #{prawn_linewrap_ja}
     -r #{asciidoctor_abstractblock_xreftext}
     -r #{asciidoctor_pdf_horz_dlist}
+    -r #{asciidoctot_table_font}
     -r asciidoctor-mathematical
     -r asciidoctor-diagram
     -a pdf-style=src/style/theme.yml
@@ -100,6 +105,7 @@ task :html do
     -d book
     -r #{asciidoctor_abstractblock_xreftext}
     -r #{asciidoctor_pdf_horz_dlist}
+    -r #{asciidoctot_table_font}
     -r asciidoctor-mathematical
     -r asciidoctor-diagram
     -a pdf-style=src/style/theme.yml
