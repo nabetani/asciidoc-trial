@@ -1,20 +1,11 @@
 require "asciidoctor-pdf"
 require "pry"
+require_relative "asciidoctor-nabehelper"
 
 module Asciidoctor
   module PDF
     class Converter
-      def get_node_attriute node, name, fallback
-        t = node.attributes[name]
-        return fallback unless t
-
-        begin
-          return Float(t)
-        rescue ArgumentError => e
-          raise ArgumentError, "#{name} value should be floating value, but it is #{t.inspect} (#{e.inspect})"
-        end
-      end
-
+      include NabeHelper
       def convert_paragraph node
         add_dest_for_block node if node.id
         prose_opts = { margin_bottom: 0, hyphenate: true }
