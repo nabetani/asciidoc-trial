@@ -33,7 +33,7 @@ module Asciidoctor
         dlist = node&.parent&.parent&.parent
 
         if dlist&.style=="horizontal"
-          m = get_node_attriute( dlist, "margin-bottom", nil )
+          m = get_node_attriute_float( dlist, "margin-bottom", nil )
           if m
             margin_bottom m
             return
@@ -81,8 +81,8 @@ module Asciidoctor
             else
               term_inline_format = [inherited: { styles: term_font_styles }]
             end
-            margin_left = get_node_attriute(node, 'margin-left', 10)
-            margin_bottom = get_node_attriute(node, 'margin-bottom', (@theme.prose_margin_bottom || 0) * 0.5 )
+            margin_left = get_node_attriute_float(node, 'margin-left', 10)
+            margin_bottom = get_node_attriute_float(node, 'margin-bottom', (@theme.prose_margin_bottom || 0) * 0.5 )
             term_line_metrics = calc_line_metrics @theme.description_list_term_line_height || @theme.base_line_height
             term_padding = [
               term_line_metrics.padding_top, # up

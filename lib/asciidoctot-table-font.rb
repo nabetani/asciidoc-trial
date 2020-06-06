@@ -5,6 +5,7 @@ require_relative "asciidoctor-nabehelper"
 module Asciidoctor
   module PDF
     class Converter
+      include NabeHelper
       def convert_table node
         add_dest_for_block node if node.id
         # TODO: we could skip a lot of the logic below when num_rows == 0
@@ -12,6 +13,10 @@ module Asciidoctor
         num_cols = node.columns.size
         table_header_size = false
         theme = @theme
+
+        ex_head_font_size = get_node_attriute_float(node, "head-font-size", nil )
+        ex_body_font_size = get_node_attriute_float(node, "body-font-size", nil )
+        ex_padding = get_node_attriute_float_array(node, "padding", nil )
 
         tbl_bg_color = resolve_theme_color :table_background_color
         # QUESTION should we fallback to page background color? (which is never transparent)
@@ -42,6 +47,7 @@ module Asciidoctor
           theme_font :table_head do
             table_header_size = head_rows.size
             head_font_info = font_info
+            head_font_info[:size] = ex_head_font_size || head_font_info[:size]
             head_line_metrics = calc_line_metrics theme.base_line_height
             head_cell_padding = theme.table_head_cell_padding || theme.table_cell_padding
             head_cell_padding = ::Array === head_cell_padding && head_cell_padding.size == 4 ? head_cell_padding.dup : (inflate_padding head_cell_padding)
@@ -75,8 +81,11 @@ module Asciidoctor
             end
           end unless head_rows.empty?
 
+          body_font_info = font_info
+          body_font_info[:size] = ex_body_font_size || body_font_info[:size]
+
           base_cell_data = {
-            font: (body_font_info = font_info)[:family],
+            font: body_font_info[:family],
             font_style: body_font_info[:style],
             size: body_font_info[:size],
             kerning: default_kerning?,
@@ -101,6 +110,7 @@ module Asciidoctor
                   theme_font :table_head do
                     theme_font :table_header_cell do
                       header_cell_font_info = font_info
+                      header_cell_font_info[:size] = ex_head_font_size || header_cell_font_info[:size]
                       base_header_cell_data = {
                         text_color: @font_color,
                         font: header_cell_font_info[:family],
