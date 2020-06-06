@@ -4,3 +4,7 @@ fonts
 public/diag*.png
 public/.asciidoctor/
 src/generated_images
+public/images/
+public/index.html
+public/book.pdf
+
