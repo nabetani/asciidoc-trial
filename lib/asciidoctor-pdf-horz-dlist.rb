@@ -29,6 +29,20 @@ module Asciidoctor
           layout_prose node.content, prose_opts
         end
 
+        dlist = node&.parent&.parent&.parent
+
+        if dlist&.style=="horizontal"
+          raw_m = dlist.attributes["margin-bottom"]
+          begin
+            m = raw_m && Float(raw_m)
+            if m
+              margin_bottom m
+              return
+            end
+          rescue ArgumentError => e
+            raise ArgumentError, "margin-bottom value should be floating value, but it is #{raw_m.inspect} (#{e.inspect})"
+          end
+        end
         if (margin_inner_val = @theme.prose_margin_inner) &&
             (next_block = (siblings = node.parent.blocks)[(siblings.index node) + 1]) && next_block.context == :paragraph
           margin_bottom margin_inner_val
@@ -76,8 +90,6 @@ module Asciidoctor
             desc_padding = [0, 10, (@theme.prose_margin_bottom || 0) * 0.5, 10]
             term_kerning = default_kerning?
           end
-          term_padding[3]=0
-          desc_padding[3]=0
           node.items.each do |terms, desc|
             term_text = terms.map(&:text).join ?\n
             if (term_width = width_of term_text, inline_format: term_inline_format, kerning: term_kerning) > max_term_width
@@ -104,7 +116,7 @@ module Asciidoctor
           end
           max_term_width += (term_padding[1] + term_padding[3])
           term_column_width = [max_term_width, bounds.width * 0.5].min
-          table table_data, position: :left, cell_style: { border_width: 3 }, column_widths: [term_column_width] do
+          table table_data, position: :left, cell_style: { border_width: 0 }, column_widths: [term_column_width] do
             @pdf.layout_table_caption node if node.title?
           end
           margin_bottom 0 # (@theme.prose_margin_bottom || 0) * 0.5
