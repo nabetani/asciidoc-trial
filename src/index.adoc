@@ -42,6 +42,10 @@
 
 // 各 include:: の間に空行を挟まないと不幸になることがある。
 
+include::huge-table.adoc[]
+
+include::inter-page-line.adoc[]
+
 include::xref.adoc[]
 
 include::text-deco.adoc[]
