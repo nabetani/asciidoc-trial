@@ -34,6 +34,10 @@ def asciidoctot_table_font
   relative_lib "asciidoctot-table-font"
 end
 
+def asciidoctor_pdf_outline
+  relative_lib "asciidoctor-pdf-outline"
+end
+
 def copy_font(fn)
   FileUtils.mkdir_p( FONTDIR )
   return if File.exist?(File.join( FONTDIR, fn))
@@ -90,6 +94,7 @@ task pdf: [:prepare_font] do
     -r #{asciidoctor_abstractblock_xreftext}
     -r #{asciidoctor_pdf_horz_dlist}
     -r #{asciidoctot_table_font}
+    -r #{asciidoctor_pdf_outline}
     -r asciidoctor-mathematical
     -r asciidoctor-diagram
     -a pdf-style=src/style/theme.yml
