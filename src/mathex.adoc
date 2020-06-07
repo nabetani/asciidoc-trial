@@ -23,3 +23,13 @@ latexmath:[y=\sum_{i=0}^{\infty}x^{i}]
 tex 内に日本語は書けない。
 
 日本語どころか「β」や「∞」のような文字も書けない。ちゃんと `\infty` や `\beta` のように書く必要がある。
+
+=== math2image の利用
+
+math2image で、tex から、フォントの埋まっていない SVG を作ることができる。
+
+image::sample.tex.svg[]
+
+日本語を含んでいてもなんとかなる
+
+image::日本語を含む.tex.svg[]
