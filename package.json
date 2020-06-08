@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/nabetani/asciidoc-trial#readme",
   "dependencies": {
-    "math2image": "^0.2.3"
+    "nabetex2svg-node": "0.0.2"
   }
 }

@@ -24,9 +24,9 @@ tex 内に日本語は書けない。
 
 日本語どころか「β」や「∞」のような文字も書けない。ちゃんと `\infty` や `\beta` のように書く必要がある。
 
-=== math2image の利用
+=== nabetex2svg の利用
 
-math2image で、tex から、フォントの埋まっていない SVG を作ることができる。
+nabetex2svg で、tex から、フォントの埋まっていない SVG を作ることができる。
 
 image::sample.tex.svg[]
 

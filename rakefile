@@ -68,8 +68,8 @@ def download_mathfont(m)
   end
 end
 
-rule '.tex.svg' => ['.tex'] do |t|
-  sh "$(npm bin)/math2image #{t.source}" 
+rule '.tex.svg' => ['.tex', 'src/nabetex2svg.jsonc'] do |t|
+  sh "$(npm bin)/nabetex2svg -t #{t.source} -o #{t.name} -s src/nabetex2svg.jsonc" 
 end
 
 desc 'Prepare Font'
