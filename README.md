@@ -40,6 +40,12 @@ $ brew cask reinstall java
 
 として、 openjdk-14 か、それ以降(これを書いている時点では 14.0.1 が最新)にする。
 
+## math2image を使う場合
+
+```
+$ npm install
+```
+
 ## その他のライブラリ
 
 ```

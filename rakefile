@@ -68,6 +68,9 @@ def download_mathfont(m)
   end
 end
 
+rule '.tex.svg' => ['.tex', 'src/nabetex2svg.jsonc'] do |t|
+  sh "$(npm bin)/nabetex2svg -t #{t.source} -o #{t.name} -s src/nabetex2svg.jsonc" 
+end
 
 desc 'Prepare Font'
 task :prepare_font do
@@ -86,8 +89,13 @@ task :prepare_font do
   end
 end
 
+TEX_SVGS = %w(
+  sample
+  日本語を含む
+).map{ |e| File.join( 'src', 'images', e+'.tex.svg' ) }
+
 desc 'Create PDF'
-task pdf: [:prepare_font] do
+task pdf: [:prepare_font, *TEX_SVGS] do
   cmd = %W(
     asciidoctor-pdf
     -r #{prawn_linewrap_ja}
