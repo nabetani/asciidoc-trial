@@ -42,6 +42,8 @@
 
 // 各 include:: の間に空行を挟まないと不幸になることがある。
 
+include::linewrap-test.adoc[]
+
 include::replacements.adoc[]
 
 include::huge-table.adoc[]
