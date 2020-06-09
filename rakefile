@@ -38,6 +38,10 @@ def asciidoctor_pdf_outline
   relative_lib "asciidoctor-pdf-outline"
 end
 
+def asciidoctor_replacements
+  relative_lib "asciidoctor-replacements"
+end
+
 def copy_font(fn)
   FileUtils.mkdir_p( FONTDIR )
   return if File.exist?(File.join( FONTDIR, fn))
@@ -103,6 +107,7 @@ task pdf: [:prepare_font, *TEX_SVGS] do
     -r #{asciidoctor_pdf_horz_dlist}
     -r #{asciidoctor_table_font}
     -r #{asciidoctor_pdf_outline}
+    -r #{asciidoctor_replacements}
     -r asciidoctor-mathematical
     -r asciidoctor-diagram
     -a pdf-style=src/style/theme.yml
