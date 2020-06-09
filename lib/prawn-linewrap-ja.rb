@@ -79,9 +79,10 @@ module Prawn
           when PROHIBIT_LINE_BREAK_BEFORE,
                PROHIBIT_LINE_BREAK_AFTER,
                DASH_PATTERN,
-               LEADER_PATTERN
+               LEADER_PATTERN,
+               ALNUM_PATTERN
             false
-          when /[\s\p{Space}\u{200B}]/, # 空白(200b は、ゼロ幅空白)
+          when /[\-\s\p{Space}\u{200B}\u{00ad}]/, # 空白(200b は、ゼロ幅空白。00ad は、soft-hyphen)
                /[\p{Hiragana}\p{Katakana}#{EXTRA_SPLITTABLE_CHAR}\p{Han}]/, # 日本語等
                /[\p{Initial_Punctuation}\p{Open_Punctuation}]/, # 開き括弧等
                /[\p{Terminal_Punctuation}\p{Close_Punctuation}\p{Final_Punctuation}]/ # 閉じ括弧等
