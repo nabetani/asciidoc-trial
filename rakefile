@@ -30,8 +30,8 @@ def asciidoctor_abstractblock_xreftext
   relative_lib "asciidoctor-abstractblock-xreftext"
 end
 
-def asciidoctot_table_font
-  relative_lib "asciidoctot-table-font"
+def asciidoctor_table_font
+  relative_lib "asciidoctor-table-font"
 end
 
 def asciidoctor_pdf_outline
@@ -101,7 +101,7 @@ task pdf: [:prepare_font, *TEX_SVGS] do
     -r #{prawn_linewrap_ja}
     -r #{asciidoctor_abstractblock_xreftext}
     -r #{asciidoctor_pdf_horz_dlist}
-    -r #{asciidoctot_table_font}
+    -r #{asciidoctor_table_font}
     -r #{asciidoctor_pdf_outline}
     -r asciidoctor-mathematical
     -r asciidoctor-diagram
@@ -118,7 +118,7 @@ task :html do
     -d book
     -r #{asciidoctor_abstractblock_xreftext}
     -r #{asciidoctor_pdf_horz_dlist}
-    -r #{asciidoctot_table_font}
+    -r #{asciidoctor_table_font}
     -r asciidoctor-mathematical
     -r asciidoctor-diagram
     -a pdf-style=src/style/theme.yml
