@@ -66,7 +66,7 @@ module Prawn
         UNDERSCORES = "\u{005F}\u{0332}\u{FF3F}"
 
         # 英数字・キリル文字・ギリシャ文字・コンマ・ピリオド の繰り返し
-        ALNUM_PATTERN = /[\p{Latin}\p{Greek}\p{Cyrillic}0-9０-９#{ATMARKS}#{UNDERSCORES}]{2}/
+        ALNUM_PATTERN = /[\p{Latin}\p{Greek}\p{Cyrillic}0-9０-９\.\,#{ATMARKS}#{UNDERSCORES}]{2}/
 
         EXTRA_SPLITTABLE_CHAR =
           'ーｰ' + # 音引き
@@ -93,7 +93,7 @@ module Prawn
         end
 
         def tokenize(fragment)
-          fragment.size.times.with_object([""]) do |ix,s|
+          fragment.size.times.with_object(["".clone]) do |ix,s|
             cur = fragment[ix]
             if s.last.empty?
               s.last << cur
@@ -117,6 +117,24 @@ module Prawn
           @line_full = true
         end
 
+        def text_ended_with_breakable( text )
+          true
+        end
+
+        def get_last_token_of(text)
+          if text
+            tokenize(text).last
+          else
+            ""
+          end
+        end
+
+        def remember_this_fragment_for_backward_looking_ops
+          @previous_fragment = @fragment_output.dup
+          pf = @previous_fragment
+          @previous_fragment_ended_with_breakable = text_ended_with_breakable(pf)
+          @previous_fragment_output_without_last_word = get_last_token_of pf
+        end
       end
     end
   end
