@@ -1,5 +1,6 @@
 module Asciidoctor
   module NabeHelper
+    module_function 
     def get_node_attriute_float node, name, fallback
       t = node.attributes[name]
       return fallback unless t

@@ -1,11 +1,21 @@
 == 置換
 
-* ->
-* <-
-* <=
-* =>
-* (c)
-* (C)
-* (r)
-* (R)
-* hoge(TM)
+=== default
+
+* hoge->fuga<-piyo<=foo=>bar(C) baz(R) xyzzy(TM)
+* tata -- titi -- tutu
+
+=== use-replacement true
+
+:use-replacement: true
+
+* hoge->fuga<-piyo<=foo=>bar(C) baz(R) xyzzy(TM)
+* tata -- titi -- tutu
+
+=== use-replacement false
+
+:use-replacement: false
+
+* hoge->fuga<-piyo<=foo=>bar(C) baz(R) xyzzy(TM)
+* tata -- titi -- tutu
+
