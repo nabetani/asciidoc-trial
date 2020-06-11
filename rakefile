@@ -27,6 +27,7 @@ def req_extra_libs(t)
     ["asciidoctor-pdf-outline", [:pdf]],
     ["asciidoctor-pdf-table-keeptogether", [:pdf]],
     ["asciidoctor-replacements", [:pdf,:html]],
+    ["asciidoctor-pdf-custom-property", [:pdf]],
   ]
   srces.map{ |fn, typ|
     typ.include?(t) ? "-r " + relative_lib(fn) : ""

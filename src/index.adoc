@@ -11,6 +11,7 @@
 :author_name: 株式会社 内緒
 :author: {author_name}
 :authors:
+// 作成者
 // if no 「:authors:」, no author text in title page.
 
 :math:
