@@ -58,6 +58,8 @@
 
 // 各 include:: の間に空行を挟まないと不幸になることがある。
 
+include::table-position.adoc[]
+
 include::nobreak-table.adoc[]
 
 include::replacements.adoc[]
