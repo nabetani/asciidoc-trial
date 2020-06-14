@@ -11,7 +11,22 @@
 :author_name: 株式会社 内緒
 :author: {author_name}
 :authors:
+
+// 以下、PDF の「文書のプロパティ」の設定を強制的に変える
+
+// タイトル
+:pdf_title: たいとるぅ！ version {version}
 // 作成者
+:pdf_author: おーさぁ！
+// サブタイトル
+:pdf_subject: さぶじぇくとぅー！
+// キーワード
+:pdf_keywords: きぃーわーずぅ！ foo bar baz hoge fuga piyo 最後のきーわーどぉぅ！
+// PDF変換 (例: Acrobat Distiller)
+:pdf_producer: ぷろでゅーさぁー！
+// アプリケーション (例: FrameMaker 6.0)
+:pdf_creator: くりえぃたぁー！
+
 // if no 「:authors:」, no author text in title page.
 
 :math:
