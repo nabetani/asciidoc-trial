@@ -1,10 +1,53 @@
-#require "asciidoctor-pdf"
+require "asciidoctor-pdf"
+require "pry"
+require_relative "asciidoctor-nabehelper"
 
 module Asciidoctor
   module PDF
     class Converter
+      include NabeHelper
+      def convert_paragraph node
+        add_dest_for_block node if node.id
+        prose_opts = { margin_bottom: 0, hyphenate: true }
+        lead = (roles = node.roles).include? 'lead'
+        if (align = resolve_alignment_from_role roles)
+          prose_opts[:align] = align
+        end
 
-            def convert_dlist node
+        if (text_indent = @theme.prose_text_indent || 0) > 0
+          prose_opts[:indent_paragraphs] = text_indent
+        end
+
+        # TODO: check if we're within one line of the bottom of the page
+        # and advance to the next page if so (similar to logic for section titles)
+        layout_caption node.title if node.title?
+
+        if lead
+          theme_font :lead do
+            layout_prose node.content, prose_opts
+          end
+        else
+          layout_prose node.content, prose_opts
+        end
+
+        dlist = node&.parent&.parent&.parent
+
+        if dlist&.style=="horizontal"
+          m = get_node_attriute_float( dlist, "margin-bottom", nil )
+          if m
+            margin_bottom m
+            return
+          end
+        end
+        if (margin_inner_val = @theme.prose_margin_inner) &&
+            (next_block = (siblings = node.parent.blocks)[(siblings.index node) + 1]) && next_block.context == :paragraph
+          margin_bottom margin_inner_val
+        else
+          margin_bottom @theme.prose_margin_bottom
+        end
+      end
+
+      def convert_dlist node
         add_dest_for_block node if node.id
 
         case (style = node.style)
@@ -38,9 +81,21 @@ module Asciidoctor
             else
               term_inline_format = [inherited: { styles: term_font_styles }]
             end
+            margin_left = get_node_attriute_float(node, 'margin-left', 10)
+            margin_bottom = get_node_attriute_float(node, 'margin-bottom', (@theme.prose_margin_bottom || 0) * 0.5 )
             term_line_metrics = calc_line_metrics @theme.description_list_term_line_height || @theme.base_line_height
-            term_padding = [term_line_metrics.padding_top, 10, (@theme.prose_margin_bottom || 0) * 0.5 + term_line_metrics.padding_bottom, 10]
-            desc_padding = [0, 10, (@theme.prose_margin_bottom || 0) * 0.5, 10]
+            term_padding = [
+              term_line_metrics.padding_top, # up
+              10, # right
+              margin_bottom + term_line_metrics.padding_bottom, # bottom
+              margin_left # left
+            ]
+            desc_padding = [
+              0, # up
+              10, # right
+              margin_bottom, # bottom
+              10 # left
+            ]
             term_kerning = default_kerning?
           end
           node.items.each do |terms, desc|
@@ -72,7 +127,7 @@ module Asciidoctor
           table table_data, position: :left, cell_style: { border_width: 0 }, column_widths: [term_column_width] do
             @pdf.layout_table_caption node if node.title?
           end
-          margin_bottom (@theme.prose_margin_bottom || 0) * 0.5
+          margin_bottom 0 # (@theme.prose_margin_bottom || 0) * 0.5
         when 'qanda'
           @list_numerals << '1'
           convert_outline_list node
@@ -102,7 +157,6 @@ module Asciidoctor
           end
         end
       end
-
     end
   end
 end

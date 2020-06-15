@@ -12,14 +12,7 @@
 # * 行頭禁則・行末禁則の文字については asciidoctor-pdf-linewrap-ja を参考にした。
 # * 分離禁止文字 については定数定義はあるものの、実装していない。
 #
-# known issue #0
-#    分離禁止文字 の処理が入っていない。たとえば「絶句……」のような文字列を「絶句…<改行>…」のようにしてしまう可能性がある。
-#
 # known issue #1
-#    “ç”、“Ä”、“ß” などを含む語の改行制御が適切になされない。
-#    定数 `ALNUM` の定義を `/[a-zA-Z0-9_@]/` ではなく、必要な言語に対応したものに変更すれば対応できると思う。
-#
-# known issue #2
 #    メソッド tokenize で、文字コードを見るべきだが、見ていない。
 #    utf-8 以外の入力があると不具合に見舞われると考えているが、試していない。
 #
@@ -36,12 +29,6 @@ module Prawn
           original_initialize_line(options)
           @disable_wrap_by_char = true
         end
-
-        # def update_line_status_based_on_last_output
-        #   if @fragment_output && 1<tokenize(@fragment_output).size
-        #     @line_contains_more_than_one_word = true
-        #   end
-        # end
 
         def self.or_rgexp( chars )
           s = chars.chars.map{ |e| Regexp.escape(e) }.join
@@ -79,7 +66,7 @@ module Prawn
         UNDERSCORES = "\u{005F}\u{0332}\u{FF3F}"
 
         # 英数字・キリル文字・ギリシャ文字・コンマ・ピリオド の繰り返し
-        ALNUM_PATTERN = /[\p{Latin}\p{Greek}\p{Cyrillic}0-9０-９#{ATMARKS}#{UNDERSCORES}]{2}/
+        ALNUM_PATTERN = /[\p{Latin}\p{Greek}\p{Cyrillic}0-9０-９\.\,#{ATMARKS}#{UNDERSCORES}]{2}/
 
         EXTRA_SPLITTABLE_CHAR =
           'ーｰ' + # 音引き
@@ -92,9 +79,10 @@ module Prawn
           when PROHIBIT_LINE_BREAK_BEFORE,
                PROHIBIT_LINE_BREAK_AFTER,
                DASH_PATTERN,
-               LEADER_PATTERN
+               LEADER_PATTERN,
+               ALNUM_PATTERN
             false
-          when /[\s\p{Space}\u{200B}]/, # 空白(200b は、ゼロ幅空白)
+          when /[\-\s\p{Space}\u{200B}\u{00ad}]/, # 空白(200b は、ゼロ幅空白。00ad は、soft-hyphen)
                /[\p{Hiragana}\p{Katakana}#{EXTRA_SPLITTABLE_CHAR}\p{Han}]/, # 日本語等
                /[\p{Initial_Punctuation}\p{Open_Punctuation}]/, # 開き括弧等
                /[\p{Terminal_Punctuation}\p{Close_Punctuation}\p{Final_Punctuation}]/ # 閉じ括弧等
@@ -105,7 +93,7 @@ module Prawn
         end
 
         def tokenize(fragment)
-          fragment.size.times.with_object([""]) do |ix,s|
+          fragment.size.times.with_object(["".clone]) do |ix,s|
             cur = fragment[ix]
             if s.last.empty?
               s.last << cur
@@ -129,6 +117,24 @@ module Prawn
           @line_full = true
         end
 
+        def text_ended_with_breakable( text )
+          true
+        end
+
+        def get_last_token_of(text)
+          if text
+            tokenize(text).last
+          else
+            ""
+          end
+        end
+
+        def remember_this_fragment_for_backward_looking_ops
+          @previous_fragment = @fragment_output.dup
+          pf = @previous_fragment
+          @previous_fragment_ended_with_breakable = text_ended_with_breakable(pf)
+          @previous_fragment_output_without_last_word = get_last_token_of pf
+        end
       end
     end
   end

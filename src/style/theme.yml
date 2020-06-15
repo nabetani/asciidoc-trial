@@ -97,6 +97,8 @@ header:
     left:
       content: '*{page-number}*'
 
+bookmark:
+  include-title-page: false
 
 admonition:
   column-rule-width: 0.3mm

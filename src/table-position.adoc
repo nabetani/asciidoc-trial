@@ -1,0 +1,62 @@
+== テーブルの配置
+
+=== 普通に
+
+.れふと
+[cols="1,2,3", width=40, align="left"]
+|===
+|foo|bar|baz
+
+|ほげ|ふが|ぴよ
+|===
+
+
+.センター
+[cols="1,2,3", width=40, align="center"]
+|===
+|foo|bar|baz
+
+|ほげ|ふが|ぴよ
+|===
+
+.らいと
+[cols="1,2,3", width=40, align="right"]
+|===
+|foo|bar|baz
+
+|ほげ|ふが|ぴよ
+|===
+
+
+=== 字下げの中で
+
+Foo::
+Bar:::
+Baz::::
++
+--
+.れふと
+[cols="1,2,3", width=40, align="left"]
+|===
+|foo|bar|baz
+
+|ほげ|ふが|ぴよ
+|===
+
+
+.センター
+[cols="1,2,3", width=40, align="center"]
+|===
+|foo|bar|baz
+
+|ほげ|ふが|ぴよ
+|===
+
+.らいと
+[cols="1,2,3", width=40, align="right"]
+|===
+|foo|bar|baz
+
+|ほげ|ふが|ぴよ
+|===
+--
