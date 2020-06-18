@@ -104,6 +104,34 @@ task pdf: [:prepare_font, *TEX_SVGS] do
   sh cmd.join(" ")
 end
 
+desc 'Create PDF(cjk)'
+task pdf_cjk: [:prepare_font, *TEX_SVGS] do
+  cmd = %W(
+    asciidoctor-pdf
+    -a version=1.2.3
+    -r asciidoctor-pdf-cjk
+    -r asciidoctor-mathematical
+    -r asciidoctor-diagram
+    -a pdf-style=src/style/theme.yml
+    #{SOURCE}
+    -o #{OUTDIR}/book_cjk.pdf)
+  sh cmd.join(" ")
+end
+
+desc 'Create PDF(cjk_lw)'
+task pdf_cjk_lw: [:prepare_font, *TEX_SVGS] do
+  cmd = %W(
+    asciidoctor-pdf
+    -a version=1.2.3
+    -r asciidoctor-pdf-linewrap-ja
+    -r asciidoctor-mathematical
+    -r asciidoctor-diagram
+    -a pdf-style=src/style/theme.yml
+    #{SOURCE}
+    -o #{OUTDIR}/book_cjk_lw.pdf)
+  sh cmd.join(" ")
+end
+
 desc 'Create HTML'
 task :html do
   cmd = %W(
@@ -120,4 +148,4 @@ task :html do
   sh "cp -rp src/images #{OUTDIR}"
 end
 
-task :default => [:test]
+task :default => [:pdf, :pdf_cjk, :pdf_cjk_lw]
