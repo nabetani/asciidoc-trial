@@ -14,3 +14,5 @@ gem "asciidoctor-mathematical"
 gem "ruby-debug-ide"
 gem 'debase'
 gem 'pry'
+gem 'asciidoctor-pdf-cjk'
+gem 'asciidoctor-pdf-linewrap-ja'
